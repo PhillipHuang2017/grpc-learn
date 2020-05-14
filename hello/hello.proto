@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package hello;
+
+// The `.proto` file should contain a go_package option specifying the full import path of the Go package that contains the generated code.
+// https://developers.google.com/protocol-buffers/docs/reference/go-generated#invocation
+option go_package = "./hello";
+
+message HELLO_REQUEST {
+  string name = 1;
+}
+
+message HELLO_RESPONSE {
+  string message = 1;
+}
+
+service Hello{
+  rpc EchoHello(HELLO_REQUEST) returns (HELLO_RESPONSE) {
+
+  }
+}
